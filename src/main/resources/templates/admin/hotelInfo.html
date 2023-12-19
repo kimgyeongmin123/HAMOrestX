@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/admin/adminMain"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
+관리자가 숙소 상세조회하는 페이지
+<div>
+    숙소 관리자 아이디 : <span th:text="${hotel.ownerId}"></span>
+</div>
+<div>
+    숙소명 : <span th:text="${hotel.hotelName}"></span>
+</div>
+<div>
+    주소 : <span th:text="${hotel.hotelAddr}"></span>
+</div>
+<div>
+    숙소 소개 : <span th:text="${hotel.hotelInfo}"></span>
+</div>
+<form th:action="@{'/admin/hotelPermit/' + ${hotel.hotelId}}" method="post">
+    <button type="submit">승인</button>
+</form>
+
+</body>
+</html>

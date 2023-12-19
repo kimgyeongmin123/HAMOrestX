@@ -36,7 +36,7 @@ public class HomeController {
         }
 
         //모든 숙소 리스트 가져오기
-        List<Hotel> hotelList = hotelService.getHotelList();
+        List<Hotel> hotelList = hotelService.getHotelYList();
         model.addAttribute("hotels", hotelList);
 
         return "main";
@@ -48,7 +48,7 @@ public class HomeController {
         return "login";
     }
 
-//    @GetMapping("/user")
+    //    @GetMapping("/user")
 //    public void user(){
 //        log.info("GET /user");
 //
