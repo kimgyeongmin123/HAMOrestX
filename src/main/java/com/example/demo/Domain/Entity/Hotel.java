@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,6 +23,9 @@ public class Hotel {
     private String hotelAddr;
     private String hotelInfo;
     private String hotelName;
+
+    @ElementCollection
+    private List<String> files;
 
     private String permit;
 

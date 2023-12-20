@@ -3,25 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 <body>
 <a href="/admin/adminMain"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
-관리자가 숙소 상세조회하는 페이지
-<div>
-    숙소 관리자 아이디 : <span th:text="${hotel.ownerId}"></span>
+
+<div class="middle-main">
+    <div style="display : flex;">
+
+        <div class="hotel-1">
+            <div class="hotelId" th:text="${hotel.hotelId}" style="text-align: center; margin: 5px 0px;">숙소아이디</div>
+            <div th:text="${hotel.ownerId}" style="text-align: center; margin: 5px 0px;">사업자 아이디</div>
+            <div th:text="${hotel.hotelName}" style="text-align: center; margin: 5px 0px;">숙소명</div>
+            <div th:text="${hotel.hotelAddr}" style="text-align: center;">주소</div>
+            <div th:text="${hotel.hotelInfo}" style="text-align: center;">주소</div>
+        </div>
+        <button type="button" id="permitBtn">승인</button>
+
+    </div>
 </div>
-<div>
-    숙소명 : <span th:text="${hotel.hotelName}"></span>
-</div>
-<div>
-    주소 : <span th:text="${hotel.hotelAddr}"></span>
-</div>
-<div>
-    숙소 소개 : <span th:text="${hotel.hotelInfo}"></span>
-</div>
-<form th:action="@{'/admin/hotelPermit/' + ${hotel.hotelId}}" method="post">
-    <button type="submit">승인</button>
-</form>
+
+<script>
+    $(document).ready(function() {
+         $("#permitBtn").click(function() {
+
+             var hotelId = $(".hotelId").text();
+             console.log("Clicked! hotelId:", hotelId);
+
+             $.ajax({
+                 type: "POST",
+                 url: "/admin/hotelPermit/"+hotelId,
+                 success: function(response) {
+                     alert('승인완료했습니다.');
+                     window.location.href = "/admin/hotelPermit";
+                 },
+                 error: function(error) {
+                     alert('오류로 승인을 실패하였습니다.');
+                     window.location.href = "/admin/hotelPermit";
+                 }
+             });
+         });
+    });
+</script>
 
 </body>
 </html>

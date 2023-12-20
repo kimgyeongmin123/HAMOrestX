@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 <body>
-관리자 > 숙소승인 페이지
 <a href="/admin/adminMain"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
 
 <div class="middle-main">
@@ -14,17 +16,39 @@
         <div class="hotel" th:each="hotel : ${hotels}">
             <a th:href="'/admin/hotelInfo/'+${hotel.hotelId}">
                 <div class="hotel-1">
-                    <img src="images/hotel1.jpg" alt="Hotel Image 1">
+                    <div class="hotelId" th:text="${hotel.hotelId}" style="text-align: center; margin: 5px 0px;">숙소아이디</div>
                     <div th:text="${hotel.hotelName}" style="text-align: center; margin: 5px 0px;">숙소명</div>
                     <div th:text="${hotel.hotelAddr}" style="text-align: center;">주소</div>
                 </div>
             </a>
-            <form th:action="@{'/admin/hotelPermit/' + ${hotel.hotelId}}" method="post">
-                <button type="submit">승인</button>
-            </form>
+            <button type="button" id="permitBtn">승인</button>
         </div>
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#permitBtn").click(function() {
+
+            var hotelId = $(this).closest(".hotel").find(".hotelId").text();
+            console.log("Clicked! hotelId:", hotelId);
+
+            $.ajax({
+                type: "POST",
+                url: "/admin/hotelPermit/"+hotelId,
+                success: function(response) {
+                    alert('승인완료했습니다.');
+                    window.location.href = "/admin/hotelPermit";
+                },
+                error: function(error) {
+                    alert('오류로 승인을 실패하였습니다.');
+                    window.location.href = "/admin/hotelPermit";
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

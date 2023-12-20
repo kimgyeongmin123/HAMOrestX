@@ -40,6 +40,9 @@ dependencies {
 	//CoolSMS
 	implementation 'net.nurigo:sdk:4.3.0'
 
+	//FILE UPLOAD
+	implementation 'commons-fileupload:commons-fileupload:1.5'
+
 }
 
 tasks.named('test') {
