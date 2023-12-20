@@ -76,7 +76,7 @@
 <body>
 <a href="/ownerMain"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
 
-<form name="hotelAdd" action="/hotelAdd" method="post" enctype="multipart/form-data">
+<form onsubmit="return false" name="hotelAddform" >
     <h1>숙소 등록</h1>
 
     <span>숙소를 등록하기 위한 정보를 입력해주세요.</span>
@@ -181,6 +181,16 @@
 
   const add_product_btn_el = document.querySelector('.add_product_btn');
         add_product_btn_el.addEventListener('click',function(){
+
+            const ownerId = document.hotelAddform.ownerId.value;
+            const hotelName = document.hotelAddform.hotelName.value;
+            const hotelAddr = document.hotelAddform.hotelAddr.value;
+            const hotelInfo = document.hotelAddform.hotelInfo.value;
+
+			formData.append('ownerId',ownerId);
+			formData.append('hotelName',hotelName);
+			formData.append('hotelAddr',hotelAddr);
+			formData.append('hotelInfo',hotelInfo);
 
             axios.post('/hotelAdd', formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
