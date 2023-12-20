@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -24,9 +25,9 @@ public class RegistrationService {
 
         System.out.println("호텔을 추가하는 서비스 호출 완료");
 
-//        Hotel hotel = new Hotel();
+        Hotel hotel = new Hotel();
 
-        Hotel hotel = HotelDto.dtoToEntity(dto);
+        hotel = HotelDto.dtoToEntity(dto);
 
         hotelRepository.save(hotel);
 
@@ -36,13 +37,19 @@ public class RegistrationService {
         //저장 폴더 지정
         String uploadPath = uploadDir + File.separator + hotel.getHotelId() + File.separator + hotel.getHotelName();
 
-        System.out.println("업로드할 파일명 : " + uploadPath);
+        System.out.println("저장될 파일 경로 : " + uploadPath);
+
         File dir = new File(uploadPath);
+
+        System.out.println("dir : "+dir);
+
         if(!dir.exists()) {
             dir.mkdirs();
         }
 
-        List<String> boardList = new ArrayList<>();
+        List<String> hotelList = new ArrayList<>();
+
+        System.out.println("dto.getFiles : " + Arrays.toString(dto.getFiles()));
 
         for(MultipartFile file  : dto.getFiles())
         {
@@ -50,7 +57,7 @@ public class RegistrationService {
             System.out.println("FILE NAME : " + file.getOriginalFilename());
             System.out.println("FILE SIZE : " + file.getSize() + " Byte");
             System.out.println("--------------------");
-            boardList.add(file.getOriginalFilename());
+            hotelList.add(file.getOriginalFilename());
 
 
             //파일객체 생성
@@ -60,7 +67,7 @@ public class RegistrationService {
             file.transferTo(fileobj);
         }
 
-        hotel.setFiles(boardList);
+        hotel.setFiles(hotelList);
         hotelRepository.save(hotel);
 
         return true;
