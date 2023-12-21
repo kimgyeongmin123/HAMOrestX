@@ -154,8 +154,19 @@
                             </span>
                             <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
-                        <div style="border : 1px solid gray;">여기에 달력</div>
-                        <div style="border : 1px solid gray;">여기에 인원 수</div>
+                        <div id="datepicker-container" style="border: 1px solid gray; display: none;"></div>
+                        <button type="button" class="btn btn-light calendar-btn">날짜 선택</button>
+                        <div class="dropdown" style="border: 1px solid gray;">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="guestsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                인원 수 선택
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="guestsDropdown">
+                                <a class="dropdown-item" href="#">1</a>
+                                <a class="dropdown-item" href="#">2</a>
+                                <a class="dropdown-item" href="#">3</a>
+                                <a class="dropdown-item" href="#">4</a>
+                            </div>
+                        </div>
                         <button type="button" class="btn btn-light search-btn">검색</button>
                     </div>
                 </div>
@@ -184,6 +195,27 @@
     </footer>
 
 </div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- jQuery UI CSS -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<!-- jQuery UI JS -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    $(function () {
+   $(".calendar-btn").click(function () {
+       $("#datepicker-container").datepicker({
+                dateFormat: "yy-mm-dd",
+                showOtherMonths: true,
+                selectOtherMonths: true
+            }).toggle();
+        });
+     });
+</script>
 
 </body>
 </html>
