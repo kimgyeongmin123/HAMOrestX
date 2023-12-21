@@ -169,7 +169,7 @@
             <div class="hotel" th:each="hotel : ${hotels}">
                 <a th:href="'/reservation/'+${hotel.hotelId}">
                     <div class="hotel-1">
-                        <img th:src="@{'/resources/HamoRestX/'+${hotel.hotelId}+'/'+${hotel.hotelName}+'/'+${hotel.files.get(0)}}" alt="Hotel Image 1">
+                        <img th:src="@{'/file/HamoRestX/'+${hotel.hotelId}+'/'+${hotel.hotelName}+'/'+${hotel.files.get(0)}}">
                         <div th:text="${hotel.hotelName}" style="text-align: center; margin: 5px 0px;">숙소명</div>
                         <div th:text="${hotel.hotelAddr}" style="text-align: center;">주소</div>
                     </div>

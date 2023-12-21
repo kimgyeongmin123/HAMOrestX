@@ -23,18 +23,31 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	//THYMELEAF
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	//WEB
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	//LOMBOK
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	//TEST
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 	testImplementation 'org.springframework.security:spring-security-test'
 
 	//DATABASE
 	implementation 'com.mysql:mysql-connector-j:8.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+	//ORM_JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	//CoolSMS

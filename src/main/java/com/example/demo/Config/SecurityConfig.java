@@ -40,7 +40,7 @@ public class SecurityConfig  {
                 authorize->{
                     authorize.requestMatchers("/","/main","/ownerLogin","/login").permitAll();
                     authorize.requestMatchers("/join").hasRole("ANONYMOUS");
-                    authorize.requestMatchers("/css/**","/js/**","/images/**").permitAll();
+                    authorize.requestMatchers("/css/**","/js/**","/images/**","/file/HamoRestX/**").permitAll();
                     authorize.requestMatchers("/","/main").hasRole("USER"); // ROLE_USER
                     authorize.requestMatchers("/ownerMain").hasRole("MEMBER"); // ROLE_MEMBER
                     authorize.requestMatchers("/admin/adminMain").hasRole("ADMIN"); // ROLE_ADMIN
