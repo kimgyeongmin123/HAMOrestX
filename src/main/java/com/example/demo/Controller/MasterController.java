@@ -79,6 +79,22 @@ public class MasterController {
         model.addAttribute("userList", userList);
         model.addAttribute("ownerList", ownerList);
 
+        System.out.println("유저리스트 : "+userList);
+        System.out.println("사업자리스트 : "+ownerList);
+
         return "/admin/userManage";
+    }
+
+    //유저 상세조회
+    @GetMapping("/admin/userManage/getUserOne/{userId}")
+    public String getUserOne(@PathVariable("userId") String userId, Model model){
+
+        System.out.println("관리자가 회원 상세조회를 클릭 회원 아이디 : " + userId);
+
+        User user = masterService.getUserOne(userId);
+
+        model.addAttribute("user", user);
+
+        return "admin/userOne";
     }
 }
