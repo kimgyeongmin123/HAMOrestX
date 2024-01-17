@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Reserve {
     @Id
-    private int reserveId;
+    private String reserveId;
     private int hotelId;
     private String userId;
 

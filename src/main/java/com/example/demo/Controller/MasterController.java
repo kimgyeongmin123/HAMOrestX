@@ -2,7 +2,10 @@ package com.example.demo.Controller;
 
 import com.example.demo.Domain.Dto.HotelDto;
 import com.example.demo.Domain.Entity.Hotel;
+import com.example.demo.Domain.Entity.Master;
+import com.example.demo.Domain.Entity.User;
 import com.example.demo.Domain.Service.HotelService;
+import com.example.demo.Domain.Service.MasterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,9 @@ public class MasterController {
 
     @Autowired
     private HotelService hotelService;
+
+    @Autowired
+    private MasterService masterService;
 
     @GetMapping("/admin/adminMain")
     public String adminMain() {
@@ -60,5 +66,19 @@ public class MasterController {
         hotelService.permitY(hotelId);
 
         return "/admin/hotelPermit";
+    }
+
+    @GetMapping("/admin/userManage")
+    public String get_userManager(Model model){
+
+        System.out.println("관리자가 회원을 관리하는 겟 요청 컨트롤러");
+
+        List<User> userList = masterService.userList();
+        List<User> ownerList = masterService.ownerList();
+
+        model.addAttribute("userList", userList);
+        model.addAttribute("ownerList", ownerList);
+
+        return "/admin/userManage";
     }
 }
