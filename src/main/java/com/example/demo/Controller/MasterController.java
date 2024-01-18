@@ -97,4 +97,15 @@ public class MasterController {
 
         return "admin/userOne";
     }
+
+    //관리자 숙소관리
+    @GetMapping("/admin/hotelManage")
+    public String hotelManage(Model model){
+
+        List<Hotel> hotels = hotelService.getHotelYList();
+
+        model.addAttribute("hotels",hotels);
+
+        return "admin/hotelManage";
+    }
 }

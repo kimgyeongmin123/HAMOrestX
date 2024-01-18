@@ -15,6 +15,11 @@ public class HotelService {
     @Autowired
     private HotelRepository hotelRepository;
 
+    //모든 숙소 조회
+    public List<Hotel> getAllHotel(){
+        return hotelRepository.findAll();
+    }
+
     //허가된 숙소목록 조회
     public List<Hotel> getHotelYList() {
         return hotelRepository.selectYhotel();
@@ -33,6 +38,7 @@ public class HotelService {
 
     }
 
+    //허가버튼을 누를 시 허가처리
     @Transactional
     public void permitY(int hotelId){
 
