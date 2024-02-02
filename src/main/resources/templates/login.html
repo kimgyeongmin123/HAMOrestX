@@ -21,44 +21,41 @@
         <form name="joinform" action="/join" method="post" onsubmit="return false">
             <h1>회원가입</h1>
             <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social"><i class="fab fa-facebook-f">a</i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g">a</i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in">a</i></a>
             </div>
-            <span>가입하기 위한 정보를 입력해주세요.</span>
             <input type="hidden" id="role" name="role" value="ROLE_USER">
             <input type="text" name="UserId" placeholder="Id" />
             <input type="password" name="UserPassword" placeholder="Password" />
             <input type="text" name="UserName" placeholder="Name" />
             <input type="text" name="UserBirth" placeholder="Birth ex)19980101" />
             <input type="text" name="UserPhone" placeholder="Phone ex)01012341234" />
-            <button onclick="isValid()">가입</button>
+            <button onclick="isValid()" style="color : #3E797C; font-weight: 800;">가입</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
         <form action="/login" method="post">
             <h1>Sign in</h1>
             <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social"><i class="fab fa-facebook-f">a</i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g">a</i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in">a</i></a>
             </div>
-            <span>or use your account</span>
             <input type="text" name="username" placeholder="Id" />
             <input type="password" name="password" placeholder="Password" />
             <a href="#">비밀번호를 잊으셨나요?</a>
-            <button type="submit">로그인</button>
+            <button type="submit" style="color : #3E797C; font-weight: 800;">로그인</button>
         </form>
     </div>
     <div class="overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
-                <h1>하모휴식스에 오신걸 환영합니다!</h1>
                 <p>계정이 이미 있으시다면 아래 버튼을 눌러 로그인 해주세요.</p>
                 <button class="ghost" id="signIn">로그인 하러가기</button>
             </div>
             <div class="overlay-panel overlay-right">
-                <h1>하모휴식스!</h1>
+                <h1>하모휴식스에 오신걸 환영합니다!</h1>
                 <p>계정이 없으시다면 아래 버튼을 눌러 가입을 해주세요.</p>
                 <button class="ghost" id="signUp">가입 하러가기</button>
                 <a href="/ownerLogin"><button class="ghost" style="margin-top : 15px;">비즈니스 로그인/회원가입</button></a>

@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #f6f5f7;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,9 +45,9 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #F0AD69;
-  background-color: #F0AD69;
-  color: #F0AD69;
+  border: 1px solid #5a7476;
+  background-color: #E5D0AC;
+  color: #5a7476;
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -66,11 +66,11 @@ button:focus {
 
 button.ghost {
   background-color: transparent;
-  border-color: #E5D0AC;
+  border-color: #5a7476;
 }
 
 form {
-  background-color: #3E797C;
+  background-color: #5a7476;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,7 @@ input {
 }
 
 .container {
-  background-color: #3E797C;
+  background-color: #E5D0AC;
   border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25),
       0 10px 10px rgba(0,0,0,0.22);
@@ -159,13 +159,13 @@ input {
 }
 
 .overlay {
-  background: #17353B;
-  background: -webkit-linear-gradient(to right, #17353B, #3E797C);
-  background: linear-gradient(to right, #17353B, #3E797C);
+  background: #f7ebd6;
+  background: -webkit-linear-gradient(to right, #fcf8f1, #f7eee0);
+  background: linear-gradient(to right, #fdfdfd, #f7ebd6);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #3E797C;
+  color: #17353B;
   position: relative;
   left: -100%;
   height: 100%;
@@ -223,7 +223,9 @@ input {
   margin: 0 5px;
   height: 40px;
   width: 40px;
+  color : rgb(0, 0, 0);
 }
+
 
 footer {
     background-color: #222;
