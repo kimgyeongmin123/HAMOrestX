@@ -14,128 +14,124 @@
 
 
     <style>
-        header{
-            margin : 10px 20px;
-            padding : 20px 100px;
-        }
-        .top-header{
-            display : flex;
-            justify-content: space-between;
+        body{
+            border : 1px solid red;
         }
 
-        main{
-        }
+                header{
+                    margin : 10px 20px;
+                }
+                .top-header{
+                    display : flex;
+                    justify-content: space-between;
+                }
 
-        .top-main{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .main-img{
-            background-image: url('images/mainimg.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 300px;
-            width : 100%;
+                main{
+                }
 
-            display : flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+                .top-main{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .main-img{
+                    background-image: url('images/mainimg.jpg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    height: 400px;
+                    width : 100%;
 
-            width : 90%;
-        }
+                    display : flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
 
-        .imgcenter{
-            width : 70%;
-        }
+                .imgcenter{
+                    width : 1160px;
+                }
 
-        .text{
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 1.5rem;
-            color : #17353B; //진한 녹색
-            //#3E797C 진한민트
-            //#F0AD69 포인트 살오렌지색
-            //#E5D0AC 포인트2 살색
+                .text{
+                    font-family: 'Black Han Sans', sans-serif;
+                    font-size: 1.5rem;
+                    color : #17353B;
+                    margin-bottom : 20px;
+                }
 
-            position : relative;
-            right : 150px;
-        }
+                .searchBox{
+                    background-color: rgb(255, 255, 255);
+                    border-radius: 15px;
+                    height : 100px;
+                    padding : 20px;
+                    display : flex;
+                    width : 100%;
 
-        .searchBox{
-            background-color: rgb(255, 255, 255);
-            border-radius: 15px;
-            height : 100px;
-            padding : 20px;
-            display : flex;
-            width : 100%;
-        }
+                    border : 1px solid red;
+                }
 
-        .searchBox>button{
-            height : 50px;
-            width : 100px;
-            margin-left : 20px;
-        }
+                .searchBox>button{
+                    height : 50px;
+                    width : 100px;
+                    margin-left : 20px;
+                }
     </style>
 
 </head>
 <body>
 
-<div>
-    <header>
-        <div class="top-header">
-            <a href="/NonLoginMain.html"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
+<header>
+    <div class="top-header">
+        <a href="/NonLoginMain.html"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
 
-            <div th:if="${authentication == null}">
-                <!-- 로그인하지 않은 경우 -->
-                <a th:href="@{/login}">로그인/회원가입</a>
-            </div>
-
-            <div th:if="${authentication != null}">
-                <!-- 로그인한 경우 -->
-                <span style="color : red;">환영합니다</span><span th:text="${authentication.name}">user</span>님
-                <form method="post" action="/logout">
-                    <button class="logout-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-                            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                        </svg>로그아웃
-                    </button>
-                </form>
-            </div>
-
+        <div th:if="${authentication == null}">
+            <!-- 로그인하지 않은 경우 -->
+            <a th:href="@{/login}">로그인/회원가입</a>
         </div>
-    </header>
 
-    <main>
-        <div class="top-main">
-            <div class="main-img">
-                <div class="imgcenter">
-                    <div class="text">여행의 휴식</br>하모휴식스와 함께 하세요!</div>
-                    <div class="searchBox">
-                        <div class="input-group mb-3">
+        <div th:if="${authentication != null}">
+            <!-- 로그인한 경우 -->
+            <span style="color : red;">환영합니다</span><span th:text="${authentication.name}">user</span>님
+            <form method="post" action="/logout">
+                <button class="logout-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                    </svg>로그아웃
+                </button>
+            </form>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <div class="top-main">
+        <div class="main-img" style="border : 1px solid red;">
+            <div class="imgcenter">
+                <div class="text">여행의 휴식</br>하모휴식스와 함께 하세요!</div>
+                <div class="searchBox">
+                    <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                 </svg>
                             </span>
-                            <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div style="border : 1px solid gray;">여기에 달력</div>
-                        <div style="border : 1px solid gray;">여기에 인원 수</div>
-                        <button type="button" class="btn btn-light search-btn">검색</button>
+                        <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
+                    <div style="border : 1px solid gray;">여기에 달력</div>
+                    <div style="border : 1px solid gray;">여기에 인원 수</div>
+                    <button type="button" class="btn btn-light search-btn">검색</button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        (주)하모휴식스
-    </footer>
+<footer>
+    (주)하모휴식스
+</footer>
 
-</div>
 
 </body>
 </html>

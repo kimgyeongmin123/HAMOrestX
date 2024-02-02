@@ -13,88 +13,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <style>
-        header{
-            margin : 10px 20px;
-            padding : 20px 100px;
-        }
-        .top-header{
-            display : flex;
-            justify-content: space-between;
+        body{
         }
 
-        main{
-        }
+                header{
+                    margin: 10px auto;
+                    width: 1200px;
 
-        .top-main{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .main-img{
-            background-image: url('images/mainimg.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 300px;
-            width : 100%;
+                }
+                .top-header{
+                    display : flex;
+                    justify-content: space-between;
+                }
 
-            display : flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+                main{
+                    display : flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
 
-            width : 90%;
-        }
+                .top-main{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width : 100%;
+                }
+                .main-img{
+                    background-image: url('images/mainimg.jpg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    height: 400px;
+                    width : 100%;
 
-        .imgcenter{
-            width : 70%;
-        }
+                    display : flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
 
-        .text{
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 1.5rem;
-            color : #17353B; //진한 녹색
-            //#3E797C 진한민트
-            //#F0AD69 포인트 살오렌지색
-            //#E5D0AC 포인트2 살색
+                .imgcenter{
+                    width : 1160px;
+                    margin-top : 80px;
+                }
 
-            position : relative;
-            right : 150px;
-        }
+                .text{
+                    font-family: 'Black Han Sans', sans-serif;
+                    font-size: 1.5rem;
+                    color : #17353B;
+                    margin-bottom : 20px;
+                }
 
-        .searchBox{
-            background-color: rgb(255, 255, 255);
-            border-radius: 15px;
-            height : 100px;
-            padding : 20px;
-            display : flex;
-            width : 100%;
-        }
+                .searchBox{
+                    background-color: rgb(255, 255, 255);
+                    border-radius: 15px;
+                    height : 100px;
+                    padding : 20px;
+                    display : flex;
+                    width : 100%;
 
-        .searchBox>button{
-            height : 50px;
-            width : 100px;
-            margin-left : 20px;
-        }
+                    border : 1px solid red;
+                }
 
-        //---숙소목록-------------------------------------------------------------
+                .where{
+                    width : 40%;
+                    height : 60px;
+                    margin-right : 15px;
+                }
+
+                .when{
+                    width : 25%;
+                    height : 60px;
+                    margin-right : 15px;
+                    border : 1px solid rgb(211, 217, 224);
+                    border-radius: 4px;
+                }
+
+                .HowMany{
+                    width : 25%;
+                    height : 60px;
+                    margin-right : 15px;
+                }
+
+                .searchBox>button{
+                    height : 60px;
+                    width : 100px;
+                }
+
+                /* //---숙소목록------------------------------------------------------------- */
         .middle-main{
-            width : 250px;
-            margin : 10px 100px;
+            width : 1200px;
+            margin-top : 50px;
+            border : 1px solid blue;
 
             display: flex;
-            flex-wrap: wrap; /* 부모의 너비를 초과하는 경우 자동으로 줄바꿈 */
+            flex-direction: column;
+            flex-wrap: wrap;
         }
+
+        .middle-main>div:first-child{
+            color : black;
+            font-size: 1.2rem;
+            margin-left : 40px;
+        }
+
+        .middle-main>div{
+            flex-wrap: wrap;
+        }
+
         .hotel{
             border : 1px solid red;
-            margin : 15px;
-            width : 200px;
+            margin-left : 40px;
+            width : 250px;
+            margin-top : 20px;
         }
 
         .hotel img{
             height: 150px;
-            width : 200px;
+            width : 100%;
         }
 
         .hotel-1 {
@@ -103,79 +145,102 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding : 15px;
         }
 
         .hotel-1:hover {
             background-color: #f0f0f0;
+        }
+
+        footer{
+            padding : 10px 0px;
+            margin : 30px auto;
+            width : 100%;
+            background-color: rgb(238, 238, 238);
+        }
+
+        footer div{
+            width : 1200px;
+            margin : 20px auto;
+        }
+
+        .footer-top{
+        }
+
+        .footer-bottom{
         }
     </style>
 
 </head>
 <body>
 
-<div>
-    <header>
-        <div class="top-header">
-            <a href="/main"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
+<header>
+    <div class="top-header">
+        <a href="/NonLoginMain.html"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
 
-            <div th:if="${authentication == null}">
-                <!-- 로그인하지 않은 경우 -->
-                <a th:href="@{/login}">로그인/회원가입</a>
-            </div>
-
-            <div th:if="${authentication != null}">
-                <!-- 로그인한 경우 -->
-                <span style="color : red;">환영합니다</span><span th:text="${authentication.name}">user</span>님
-                <form method="post" action="/logout">
-                    <button class="logout-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-                            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                        </svg>로그아웃
-                    </button>
-                </form>
-            </div>
-
+        <div th:if="${authentication == null}">
+            <!-- 로그인하지 않은 경우 -->
+            <a th:href="@{/login}">로그인/회원가입</a>
         </div>
-    </header>
 
-    <main>
-        <div class="top-main">
-            <div class="main-img">
-                <div class="imgcenter">
-                    <div class="text">여행의 휴식</br>하모휴식스와 함께 하세요!</div>
-                    <div class="searchBox">
-                        <div class="input-group mb-3">
+        <div th:if="${authentication != null}">
+            <!-- 로그인한 경우 -->
+            <span style="color : red;">환영합니다</span><span th:text="${authentication.name}">user</span>님
+            <form method="post" action="/logout">
+                <button class="logout-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                    </svg>로그아웃
+                </button>
+            </form>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <div class="top-main">
+        <div class="main-img">
+            <div class="imgcenter">
+                <div class="text">여행의 휴식</br>하모휴식스와 함께 하세요!</div>
+                <div class="searchBox">
+
+                    <div class="input-group mb-3 where">
                             <span class="input-group-text" id="basic-addon1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                 </svg>
                             </span>
-                            <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <div id="datepicker-container" style="border: 1px solid gray; display: none;"></div>
-                        <button type="button" class="btn btn-light calendar-btn">날짜 선택</button>
-                        <div class="dropdown" style="border: 1px solid gray;">
-                            <button class="btn btn-light dropdown-toggle" type="button" id="guestsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                인원 수 선택
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="guestsDropdown">
-                                <a class="dropdown-item" href="#">1</a>
-                                <a class="dropdown-item" href="#">2</a>
-                                <a class="dropdown-item" href="#">3</a>
-                                <a class="dropdown-item" href="#">4</a>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-light search-btn">검색</button>
+                        <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
+
+                    <input class="when" type="text" name="daterange"/>
+
+                    <div class="form-floating HowMany">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="+">6명 이상</option>
+                        </select>
+                        <label for="floatingSelect">인원수</label>
+                    </div>
+
+                    <button type="button" class="btn btn-light search-btn">검색</button>
+
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
     <!--   여기서부터 숙박 업소 등장이오     -->
     <div class="middle-main">
+
+
+        <div>신상 숙소</div>
         <div style="display : flex;">
             <div class="hotel" th:each="hotel : ${hotels}">
                 <a th:href="'/reservation/'+${hotel.hotelId}">
@@ -187,34 +252,28 @@
                 </a>
             </div>
         </div>
+
+
     </div>
+</main>
 
-
-    <footer>
-        (주)하모휴식스
-    </footer>
-
-</div>
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<!-- jQuery UI CSS -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<!-- jQuery UI JS -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<footer>
+    <div class="footer-top">(주)하모하모</div>
+    <div class="footer-bottom">
+        (주)하모하모</br>
+        주소:대구광역시 하모구 하모로 718, 하모빌딩 2층 | 김경민 | 사업자생년월일 : 2000-07-18</br>
+        이메일:orange761943@naver.com | 겨울이 가면 봄이 온다. | 하면 된다! | 가는 말이 고와야 오는 말이 곱다.
+    </div>
+</footer>
 
 <script>
-    $(function () {
-   $(".calendar-btn").click(function () {
-       $("#datepicker-container").datepicker({
-                dateFormat: "yy-mm-dd",
-                showOtherMonths: true,
-                selectOtherMonths: true
-            }).toggle();
-        });
-     });
+    $(function() {
+      $('input[name="daterange"]').daterangepicker({
+        opens: 'left'
+      }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+      });
+    });
 </script>
 
 </body>
